@@ -8,8 +8,9 @@
 
 sum = 0
 next = 2
+max = 1000000
 prev = 1
-while next < 1000000:
+while next < max:
 	next_t = next
 	next = next + prev
 	prev = next_t
@@ -17,4 +18,4 @@ while next < 1000000:
 	if next_t % 2 == 0:
 		sum = sum + next_t
 
-print sum
+print "sum of all even terms < " + str(max) + ": " + str(sum)
