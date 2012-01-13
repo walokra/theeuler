@@ -5,6 +5,9 @@
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #
 # Find the sum of all the even-valued terms in the sequence which do not exceed one million.
+#
+# Answer: 4613732
+#
 
 sum = 0
 next = 2
