@@ -7,7 +7,8 @@
 #
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 #
-# Answer: 465585120
+# Answer: 232792560
+#
 
 from time import time
 
@@ -74,25 +75,9 @@ def lcm(min, max):
 
 	return num
 
-# Check for divisibility by lcm
-#
-def check_lcm(min, max):
-	result = []
-	div = lcm(min, max)
-	print div
-
-	i = div+1
-	while len(result) < 1 :
-		if i % div == 0:
-			result.append(i)
-		i += 1
-	
-	return result[0]
-	
-
 # Check for divisibility by brute force
 #
-def check_bf(min, max):
+def lcm_bf(min, max):
 	result = []
 	i = 2
 	
@@ -106,7 +91,7 @@ min = 2
 max = 20
 print "The smallest number evenly divisible by all of the numbers from ", min,  " to ", max
 start = time()
-#print check_bf(min, max)
-print check_lcm(min, max)
+#print lcm_bf(min, max)
+print lcm(min, max)
 elapsed = (time() - start)
 print "Time:", elapsed
