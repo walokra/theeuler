@@ -21,7 +21,58 @@
 
 from time import time
 
+def max_len(dict_,(key,val)):
+	dict_[key] = val
+	return dict_
+    
+def chain_recur(n, d):
+	if n == 1: return d
+	current=n
+	next=current
+	seq = []
+	seq.append(current)
+
+	while next > 1:
+		#print "cur:", current, "next:", next
+		if current % 2 == 0:
+			next = current/2
+		else:
+			next = 3*current + 1
+		current = next
+		seq.append(current)
+	#print seq
+		
+	d = max_len(d, (n, len(seq)))
+	
+	return chain_bf(n-1, d)
+
+def chain_bf(n, d):
+	for i in range(n, 1, -1):
+		current=i
+		next=current
+		seq = []
+		seq.append(current)
+		while next > 1:
+			if current % 2 == 0:
+				next = current/2
+			else:
+				next = 3*current + 1
+			current = next
+			seq.append(current)
+		
+		d = max_len(d, (i, len(seq)))
+	
+		#print d
+		#print seq
+	
+# Main
+#
 start = time()
-..
+
+n = 999999
+d = dict([(x,x+1) for x in range(1, n+1)])
+chain_bf(n, d)
+print max(d, key=d.get)
+
 elapsed = (time() - start)
 print "Time:", elapsed
